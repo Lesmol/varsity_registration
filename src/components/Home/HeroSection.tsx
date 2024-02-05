@@ -7,7 +7,7 @@ function HeroSection() {
   return (
     <main className="bg-dark-brown flex-col items-center justify-between px-8 py-4">
       <Navbar />
-      <div className="flex items-center justify-around">
+      <div className="mt-14 items-center justify-around md:flex md:space-x-12">
         <HeroText />
         <HeroImages />
       </div>
