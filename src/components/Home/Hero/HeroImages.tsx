@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import wits from "../../../public/Images/wits.png";
+import wits from "@/../public/Images/wits.png";
 
 function HeroImages() {
   return (

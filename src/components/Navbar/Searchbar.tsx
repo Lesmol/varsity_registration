@@ -29,7 +29,7 @@ function Searchbar() {
         />
         <button
           type="submit"
-          className="text-primary absolute end-0.5 bottom-0.5 bg-brown hover:bg-dark-brown focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-4 py-2 transition ease-linear 157"
+          className="text-primary absolute end-0.5 bottom-0.5 bg-brown hover:bg-medium-brown focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-4 py-2 transition ease-soft-spring"
         >
           Search
         </button>

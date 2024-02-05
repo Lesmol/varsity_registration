@@ -5,7 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-	],
+  ],
   theme: {
     screens: {
       sm: "640px",
@@ -18,7 +18,9 @@ const config: Config = {
       backgroundColor: {
         primary: "#F3EEE2",
         "lighter-primary": "#F3F1EB",
+        "medium-brown": "#5E2917",
         "dark-brown": "#35170D",
+        "btn-brown": "#BB5B3B",
       },
       colors: {
         primary: "#F3F1EB",

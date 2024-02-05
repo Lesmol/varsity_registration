@@ -1,10 +1,11 @@
 import HeroSection from "@/components/Home/HeroSection";
-import Image from "next/image";
+import InsititutionSection from "@/components/Home/InsititutionSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
+      <InsititutionSection />
     </>
   );
 }
