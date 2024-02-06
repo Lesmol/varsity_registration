@@ -28,6 +28,9 @@ const config: Config = {
         brown: "#E07C5B",
         "dark-brown": "#35170D",
       },
+      boxShadow: {
+        '3xl': '0 0px 40px -15px rgba(226, 155, 131, 0.40)',
+      }
     },
   },
   plugins: [],

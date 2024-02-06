@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import Image from "next/image";
 
@@ -33,11 +33,18 @@ function InsititutionSection() {
   ];
 
   return (
-    <div className="text-[#EBBCAD] bg-white mt-56 py-6">
+    <div className="text-[#EBBCAD] bg-white mt-24 md:mt-56 py-6">
       <div className="text-center">Our top institutions to apply to</div>
-      <div className="grid grid-flow-col xl:flex xl:space-x-20 justify-center items-center mx-auto">
-        {imageList.map((item) => (
-          <Image src={item.src} alt={item.alt} className="w-[80px] object-scale-down md:w-[180px]"/>
+      <div className="flex flex-wrap justify-center items-center mx-auto">
+        {/* The last Image will be hidden in displays sizes under 640px */}
+        {imageList.map((item, index) => (
+          <Image
+            src={item.src}
+            alt={item.alt}
+            className={`w-[100px] mx-10 object-scale-down md:w-[140px] ${
+              index === imageList.length - 1 ? "hidden sm:block" : ""
+            }`}
+          />
         ))}
       </div>
     </div>
