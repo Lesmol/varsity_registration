@@ -4,11 +4,10 @@ import InsititutionSection from "@/components/Home/InsititutionSection";
 
 export default function Home() {
   return (
-    <>
+    <main className="pb-4">
       <HeroSection />
       <InsititutionSection />
       <FeatureCards />
-      <div className="mb-20"></div>
-    </>
+    </main>
   );
 }

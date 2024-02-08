@@ -19,6 +19,7 @@ const config: Config = {
         primary: "#F3EEE2",
         "lighter-primary": "#F3F1EB",
         "medium-brown": "#5E2917",
+        "medium-dark-brown": "#903E22",
         "dark-brown": "#35170D",
         "btn-brown": "#BB5B3B",
       },
@@ -29,7 +30,11 @@ const config: Config = {
         "dark-brown": "#35170D",
       },
       boxShadow: {
-        '3xl': '0 0px 40px -15px rgba(226, 155, 131, 0.40)',
+        "3xl": "0 0px 40px -15px rgba(226, 155, 131, 0.40)",
+        "custom": "-5px 5px 0 0 rgba(53, 23, 13, 1)",
+      },
+      maxWidth: {
+        "maximum": "1800px",
       }
     },
   },

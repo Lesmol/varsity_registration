@@ -33,21 +33,25 @@ function InsititutionSection() {
   ];
 
   return (
-    <div className="text-[#EBBCAD] bg-white mt-24 md:mt-56 py-6">
-      <div className="text-center">Our top institutions to apply to</div>
-      <div className="flex flex-wrap justify-center items-center mx-auto">
-        {/* The last Image will be hidden in displays sizes under 640px */}
-        {imageList.map((item, index) => (
-          <Image
-            src={item.src}
-            alt={item.alt}
-            className={`w-[100px] mx-10 object-scale-down md:w-[140px] ${
-              index === imageList.length - 1 ? "hidden sm:block" : ""
-            }`}
-          />
-        ))}
-      </div>
-    </div>
+    <section className="bg-white">
+      <main className="mx-auto max-w-maximum">
+        <div className="text-[#EBBCAD] mt-24 md:mt-56 py-6">
+          <div className="text-center">Our top institutions to apply to</div>
+          <div className="flex flex-wrap justify-center items-center mx-auto">
+            {/* The last Image will be hidden in displays sizes under 640px */}
+            {imageList.map((item, index) => (
+              <Image
+                src={item.src}
+                alt={item.alt}
+                className={`w-[100px] mx-10 object-scale-down md:w-[140px] ${
+                  index === imageList.length - 1 ? "hidden sm:block" : ""
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </main>
+    </section>
   );
 }
 
