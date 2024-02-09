@@ -31,11 +31,15 @@ const config: Config = {
       },
       boxShadow: {
         "3xl": "0 0px 40px -15px rgba(226, 155, 131, 0.40)",
-        "custom": "-5px 5px 0 0 rgba(53, 23, 13, 1)",
+        custom: "-5px 5px 0 0 rgba(53, 23, 13, 1)",
       },
       maxWidth: {
-        "maximum": "1800px",
-      }
+        maximum: "1800px",
+      },
+      backgroundImage: {
+        "login-pattern": "url('/SVG/login.svg')",
+        "register-pattern": "url('/SVG/register.svg')",
+      },
     },
   },
   plugins: [],
