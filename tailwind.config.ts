@@ -40,6 +40,9 @@ const config: Config = {
         "login-pattern": "url('/SVG/login.svg')",
         "register-pattern": "url('/SVG/register.svg')",
       },
+      aspectRatio: {
+        "3/4": "3 / 4",
+      },
     },
   },
   plugins: [],

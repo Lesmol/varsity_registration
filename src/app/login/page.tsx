@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import HeroImage from "@/components/Login/HeroImage";
 import LoginForm from "@/components/Login/LoginForm";
 
