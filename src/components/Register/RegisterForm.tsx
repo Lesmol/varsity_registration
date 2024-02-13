@@ -25,6 +25,7 @@ function RegisterForm() {
         <input
           type="name"
           placeholder="Enter your name"
+          required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
         <label htmlFor="email" className="text-dark-brown text-lg mt-6">
@@ -33,6 +34,7 @@ function RegisterForm() {
         <input
           type="email"
           placeholder="Enter your email"
+          required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
         <label htmlFor="password" className="text-dark-brown text-lg mt-6">
@@ -41,6 +43,7 @@ function RegisterForm() {
         <input
           type={showPassword ? "text" : "password"}
           placeholder="Enter your password"
+          required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
         <label
@@ -52,6 +55,7 @@ function RegisterForm() {
         <input
           type={showPassword ? "text" : "password"}
           placeholder="Confirm your password"
+          required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
         <label htmlFor="showPassword" className="text-end mt-2">

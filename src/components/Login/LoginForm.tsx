@@ -46,9 +46,10 @@ function LoginForm() {
           Email
         </label>
         <input
-          type="text"
+          type="email"
           placeholder="Enter your email"
           onChange={emailInputChangeHandler}
+          required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
         <label htmlFor="Password" className="text-dark-brown text-lg mt-10">
@@ -58,6 +59,7 @@ function LoginForm() {
           type={showPassword ? "text" : "password"}
           placeholder="Enter your password"
           onChange={passwordInputChangeHandler}
+          required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
         <label htmlFor="showPassword" className="text-end mt-2">
