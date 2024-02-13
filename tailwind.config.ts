@@ -22,12 +22,15 @@ const config: Config = {
         "medium-dark-brown": "#903E22",
         "dark-brown": "#35170D",
         "btn-brown": "#BB5B3B",
+        "input-brown": "#F1D0C5",
+        "btn-dark-brown": "#1D0C07",
       },
       colors: {
         primary: "#F3F1EB",
         search: "#8C7E54",
         brown: "#E07C5B",
         "dark-brown": "#35170D",
+        "input-brown": "#BB5B3B",
       },
       boxShadow: {
         "3xl": "0 0px 40px -15px rgba(226, 155, 131, 0.40)",
