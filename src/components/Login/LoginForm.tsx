@@ -3,12 +3,31 @@ import Link from "next/link";
 
 function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
 
   function togglePasswordVisibility() {
     setShowPassword(!showPassword);
   }
 
-  function handleGoogleLogin() {
+  function emailInputChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
+    setEnteredEmail(event.target.value);
+    console.log(event.target.value);
+  }
+
+  function passwordInputChangeHandler(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+    setEnteredPassword(event.target.value);
+  }
+
+  function emailAndPasswordLoginHandler(
+    event: React.FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+  }
+
+  function googleLoginHandler() {
     console.log("Google Login");
   }
 
@@ -18,13 +37,18 @@ function LoginForm() {
         Welcome back
       </h1>
       <p className="text-center font-light">Enter your email and password</p>
-      <form action="submit" className="flex flex-col mt-14">
+      <form
+        action="submit"
+        onSubmit={emailAndPasswordLoginHandler}
+        className="flex flex-col mt-14"
+      >
         <label htmlFor="Email" className="text-dark-brown text-lg">
           Email
         </label>
         <input
           type="text"
           placeholder="Enter your email"
+          onChange={emailInputChangeHandler}
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
         <label htmlFor="Password" className="text-dark-brown text-lg mt-10">
@@ -33,6 +57,7 @@ function LoginForm() {
         <input
           type={showPassword ? "text" : "password"}
           placeholder="Enter your password"
+          onChange={passwordInputChangeHandler}
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
         <label htmlFor="showPassword" className="text-end mt-2">
@@ -51,10 +76,7 @@ function LoginForm() {
           Login
         </button>
       </form>
-      <button
-        onClick={handleGoogleLogin}
-        className="px-4 py-2 rounded-lg w-full text-xl mt-6 bg-primary border border-black text-btn-dark-brown hover:bg-btn-brown transition 150s ease-in-out"
-      >
+      <button className="px-4 py-2 rounded-lg w-full text-xl mt-6 bg-primary border border-black text-btn-dark-brown hover:bg-btn-brown transition 150s ease-in-out">
         <div className="items-center justify-center flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
