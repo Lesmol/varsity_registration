@@ -1,7 +1,6 @@
-"use client";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import { AuthContextProvider } from "./context/AuthContext";
+import AuthProvider from "./context/AuthProvider";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -23,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="">
       <body className={roboto.className}>
-        <AuthContextProvider>{children}</AuthContextProvider>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
