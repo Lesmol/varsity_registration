@@ -47,6 +47,7 @@ function LoginForm() {
         </label>
         <input
           type="email"
+          id="email"
           placeholder="Enter your email"
           onChange={emailInputChangeHandler}
           required
@@ -57,6 +58,7 @@ function LoginForm() {
         </label>
         <input
           type={showPassword ? "text" : "password"}
+          id="password"
           placeholder="Enter your password"
           onChange={passwordInputChangeHandler}
           required
