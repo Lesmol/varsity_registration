@@ -25,6 +25,10 @@ function LoginForm() {
     event: React.FormEvent<HTMLFormElement>
   ) {
     event.preventDefault();
+
+    if (enteredEmail.trim() === "") {
+      return;
+    }
   }
 
   function googleLoginHandler() {

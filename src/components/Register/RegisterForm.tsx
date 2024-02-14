@@ -1,15 +1,68 @@
+"use client";
 import Link from "next/link";
 import React, { useState } from "react";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
+
+// TODO: I have an error that says createContext is not a function
+// TODO: I need to fix that before I can contine. My register page is not even loading
 
 function RegisterForm() {
+  const [createUserWithSignInWithGoogle] = useSignInWithGoogle(auth);
+  const [createUserWithEmailAndPassword] =
+    useCreateUserWithEmailAndPassword(auth);
   const [showPassword, setShowPassword] = useState(false);
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   function togglePasswordVisibility() {
     setShowPassword(!showPassword);
   }
 
-  function handleGoogleLogin() {
-    console.log("Google Sign In");
+  function emailInputChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
+    setEnteredEmail(event.target.value);
+    console.log(event.target.value);
+  }
+
+  function passwordInputChangeHandler(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+    setEnteredPassword(event.target.value);
+  }
+
+  function confirmPasswordInputChangeHandler(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+    setConfirmPassword(event.target.value);
+  }
+
+  async function emailAndPasswordHandler() {
+    try {
+      const result = await createUserWithEmailAndPassword(
+        enteredEmail,
+        enteredPassword
+      );
+      console.log({ result });
+      setEnteredEmail("");
+      setEnteredPassword("");
+      setConfirmPassword("");
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async function googleLoginHandler() {
+    // try {
+    //   const result = await createUserWithSignInWithGoogle();
+    //   console.log({ result });
+    // } catch (err) {
+    //   console.error(err);
+    // }
+    console.log("wooo");
   }
 
   return (
@@ -18,8 +71,12 @@ function RegisterForm() {
       <p className="text-center font-light">
         Enter your name, email and password
       </p>
-      <form action="submit" className="flex flex-col mt-14">
-        <label htmlFor="name" className="text-dark-brown text-lg">
+      <form
+        action="submit"
+        onClick={googleLoginHandler}
+        className="flex flex-col mt-14"
+      >
+        {/* <label htmlFor="name" className="text-dark-brown text-lg">
           Name
         </label>
         <input
@@ -28,7 +85,7 @@ function RegisterForm() {
           placeholder="Enter your name"
           required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
-        />
+        /> */}
         <label htmlFor="email" className="text-dark-brown text-lg mt-6">
           Email
         </label>
@@ -36,6 +93,7 @@ function RegisterForm() {
           type="email"
           id="email"
           placeholder="Enter your email"
+          onChange={emailInputChangeHandler}
           required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
@@ -46,6 +104,7 @@ function RegisterForm() {
           type={showPassword ? "text" : "password"}
           id="password"
           placeholder="Enter your password"
+          onChange={passwordInputChangeHandler}
           required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
@@ -59,6 +118,7 @@ function RegisterForm() {
           type={showPassword ? "text" : "password"}
           id="confirmPassword"
           placeholder="Confirm your password"
+          onChange={confirmPasswordInputChangeHandler}
           required
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
@@ -78,10 +138,7 @@ function RegisterForm() {
           Register
         </button>
       </form>
-      <button
-        onClick={handleGoogleLogin}
-        className="px-4 py-2 rounded-lg w-full text-xl mt-6 bg-primary border border-black text-btn-dark-brown hover:bg-btn-brown transition 150s ease-in-out"
-      >
+      <button className="px-4 py-2 rounded-lg w-full text-xl mt-6 bg-primary border border-black text-btn-dark-brown hover:bg-btn-brown transition 150s ease-in-out">
         <div className="items-center justify-center flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"

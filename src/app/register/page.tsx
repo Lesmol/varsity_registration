@@ -1,4 +1,3 @@
-"use client";
 import RegisterForm from "@/components/Register/RegisterForm";
 import RegisterHeroImage from "@/components/Register/RegisterHeroImage";
 import { motion } from "framer-motion";

@@ -1,10 +1,12 @@
 "use client";
 import AuthContext from "./auth-context";
 
-function AuthProvider(props) {
-  const context = {
-    user: "Lesedi",
-  };
+type Props = {
+  children: React.ReactNode;
+};
+
+function AuthProvider(props: Props) {
+  const context = {};
 
   return (
     <AuthContext.Provider value={context}>
