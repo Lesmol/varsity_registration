@@ -1,8 +1,10 @@
 "use client";
+import { UserAuth } from "@/app/context/AuthProvider";
 import Link from "next/link";
 import React, { useState } from "react";
 
 function RegisterForm() {
+  const { user } = UserAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -32,7 +34,7 @@ function RegisterForm() {
     <div className="text-dark-brown w-[460px]">
       <h1 className="font-serif text-6xl font-bold text-center">Hello there</h1>
       <p className="text-center font-light">
-        Enter your name, email and password
+        Enter your name, email and password. {user}
       </p>
       <form action="submit" className="flex flex-col mt-14">
         <label htmlFor="email" className="text-dark-brown text-lg mt-6">

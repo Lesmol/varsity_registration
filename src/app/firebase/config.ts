@@ -18,7 +18,8 @@ const firebaseConfig = {
 // const app = initializeApp(firebaseConfig);
 
 //* We apply a workaround for Sever Side rendering
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+// const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
