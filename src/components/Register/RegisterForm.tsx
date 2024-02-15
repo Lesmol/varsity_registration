@@ -1,19 +1,8 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import {
-  useCreateUserWithEmailAndPassword,
-  useSignInWithGoogle,
-} from "react-firebase-hooks/auth";
-import { auth } from "@/app/firebase/config";
-
-// TODO: I have an error that says createContext is not a function
-// TODO: I need to fix that before I can contine. My register page is not even loading
 
 function RegisterForm() {
-  const [createUserWithSignInWithGoogle] = useSignInWithGoogle(auth);
-  const [createUserWithEmailAndPassword] =
-    useCreateUserWithEmailAndPassword(auth);
   const [showPassword, setShowPassword] = useState(false);
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -25,7 +14,6 @@ function RegisterForm() {
 
   function emailInputChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
     setEnteredEmail(event.target.value);
-    console.log(event.target.value);
   }
 
   function passwordInputChangeHandler(
@@ -40,52 +28,13 @@ function RegisterForm() {
     setConfirmPassword(event.target.value);
   }
 
-  async function emailAndPasswordHandler() {
-    try {
-      const result = await createUserWithEmailAndPassword(
-        enteredEmail,
-        enteredPassword
-      );
-      console.log({ result });
-      setEnteredEmail("");
-      setEnteredPassword("");
-      setConfirmPassword("");
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  async function googleLoginHandler() {
-    // try {
-    //   const result = await createUserWithSignInWithGoogle();
-    //   console.log({ result });
-    // } catch (err) {
-    //   console.error(err);
-    // }
-    console.log("wooo");
-  }
-
   return (
     <div className="text-dark-brown w-[460px]">
       <h1 className="font-serif text-6xl font-bold text-center">Hello there</h1>
       <p className="text-center font-light">
         Enter your name, email and password
       </p>
-      <form
-        action="submit"
-        onClick={googleLoginHandler}
-        className="flex flex-col mt-14"
-      >
-        {/* <label htmlFor="name" className="text-dark-brown text-lg">
-          Name
-        </label>
-        <input
-          type="name"
-          id="name"
-          placeholder="Enter your name"
-          required
-          className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
-        /> */}
+      <form action="submit" className="flex flex-col mt-14">
         <label htmlFor="email" className="text-dark-brown text-lg mt-6">
           Email
         </label>
@@ -109,7 +58,7 @@ function RegisterForm() {
           className="px-4 py-3 mt-2 rounded-xl placeholder-input-brown text-input-brown bg-input-brown"
         />
         <label
-          htmlFor="confirm password"
+          htmlFor="confirmPassword"
           className="text-dark-brown text-lg mt-6"
         >
           Confirm password

@@ -1,18 +1,19 @@
 "use client";
 import AuthContext from "./auth-context";
+import { useContext, useState } from "react";
 
 type Props = {
   children: React.ReactNode;
 };
 
-function AuthProvider(props: Props) {
-  const context = {};
+export function AuthProvider(props: Props) {
+  const [user, setUser] = useState({ user: "Lesedi" });
 
   return (
-    <AuthContext.Provider value={context}>
-      {props.children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={user}>{props.children}</AuthContext.Provider>
   );
 }
 
-export default AuthProvider;
+export const UserAuth = () => {
+  return useContext(AuthContext);
+};

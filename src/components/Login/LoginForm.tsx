@@ -21,31 +21,13 @@ function LoginForm() {
     setEnteredPassword(event.target.value);
   }
 
-  function emailAndPasswordLoginHandler(
-    event: React.FormEvent<HTMLFormElement>
-  ) {
-    event.preventDefault();
-
-    if (enteredEmail.trim() === "") {
-      return;
-    }
-  }
-
-  function googleLoginHandler() {
-    console.log("Google Login");
-  }
-
   return (
     <div className="text-dark-brown w-[460px]">
       <h1 className="font-serif text-6xl font-bold text-center">
         Welcome back
       </h1>
       <p className="text-center font-light">Enter your email and password</p>
-      <form
-        action="submit"
-        onSubmit={emailAndPasswordLoginHandler}
-        className="flex flex-col mt-14"
-      >
+      <form action="submit" className="flex flex-col mt-14">
         <label htmlFor="Email" className="text-dark-brown text-lg">
           Email
         </label>
