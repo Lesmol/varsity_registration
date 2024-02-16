@@ -9,13 +9,14 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
 } from "firebase/auth";
+import { User } from "firebase/auth";
 
 type Props = {
   children: React.ReactNode;
 };
 
 export function AuthProvider(props: Props) {
-  const [user, setUser] = useState({ user: "" });
+  const [user, setUser] = useState<User | null>(null);
 
   function googleSignInHandler() {
     const provider = new GoogleAuthProvider();
@@ -28,18 +29,16 @@ export function AuthProvider(props: Props) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // TODO: I have a type error here.
-      // TODO: currentUser is a User object, so I need to make the user map accept the User object in order for it to work properly
-      setUser({ user: currentUser });
+      if (currentUser) {
+        setUser(currentUser);
+      }
       return () => unsubscribe();
     });
   }, [user]);
 
   return (
     // TODO: I have another problem that I don't understand yet
-    <AuthContext.Provider value={{ user, googleSignInHandler, logOutHandler }}>
-      {props.children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={user}>{props.children}</AuthContext.Provider>
   );
 }
 
