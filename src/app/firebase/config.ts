@@ -5,6 +5,8 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+//! authDomain doesn't accept the value from the .env.local file
+// TODO: I need to find out if I can fix that
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "varsity-registration-auth.firebaseapp.com",

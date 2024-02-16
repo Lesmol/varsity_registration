@@ -37,7 +37,9 @@ export function AuthProvider(props: Props) {
   }, [user]);
 
   return (
-    // TODO: I have another problem that I don't understand yet
+    // TODO: Value doesn't allow me to put in the functions that I created
+    // TODO: I need to fix that by either figuring out what the problem is or creatin another app context for the functions
+    //* Right thge fucntions are on the client side page which isn't good
     <AuthContext.Provider value={user}>{props.children}</AuthContext.Provider>
   );
 }

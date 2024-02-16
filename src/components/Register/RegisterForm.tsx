@@ -40,6 +40,9 @@ function RegisterForm() {
   }
 
   //* Sign In and Log out Hanlders
+  // TODO: The google sign in functionality works, but when I log out it doesn't refresh the page.
+  // TODO: I need to get it to refresh the page when I click the log out btn.
+  //! I need to remove this logic from the Login page
   const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   function googleSignInHandler() {
