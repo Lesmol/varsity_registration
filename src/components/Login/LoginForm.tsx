@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import Link from "next/link";
+import { useAuth } from "@/app/context/auth-context";
 
 function LoginForm() {
+  const authContext = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -21,13 +23,46 @@ function LoginForm() {
     setEnteredPassword(event.target.value);
   }
 
+  // TODO: I need to handle firebase errors
+  async function emailAndPasswordSignInHandler(
+    event: FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+
+    try {
+      const result = await authContext.signInWithEmail(
+        enteredEmail,
+        enteredPassword
+      );
+      console.log(result);
+      setEnteredEmail("");
+      setEnteredPassword("");
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async function googleSignIn() {
+    try {
+      await authContext.signInWithGoogle().then(() => {
+        // window.location.href = "/";
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   return (
     <div className="text-dark-brown w-[460px]">
       <h1 className="font-serif text-6xl font-bold text-center">
-        Welcome back
+        Welcome back {authContext.user?.displayName}
       </h1>
       <p className="text-center font-light">Enter your email and password</p>
-      <form action="submit" className="flex flex-col mt-14">
+      <form
+        action="submit"
+        onSubmit={emailAndPasswordSignInHandler}
+        className="flex flex-col mt-14"
+      >
         <label htmlFor="Email" className="text-dark-brown text-lg">
           Email
         </label>
@@ -66,7 +101,10 @@ function LoginForm() {
           Login
         </button>
       </form>
-      <button className="px-4 py-2 rounded-lg w-full text-xl mt-6 bg-primary border border-black text-btn-dark-brown hover:bg-btn-brown transition 150s ease-in-out">
+      <button
+        onClick={googleSignIn}
+        className="px-4 py-2 rounded-lg w-full text-xl mt-6 bg-primary border border-black text-btn-dark-brown hover:bg-btn-brown transition 150s ease-in-out"
+      >
         <div className="items-center justify-center flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
