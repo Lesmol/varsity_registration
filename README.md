@@ -18,4 +18,4 @@ npm run dev
 - Create a .env.local file in your project and <b>copy & paste</b> profile credentials to the folder with the proper names
 
 ### Tools used
-[![My Skills](https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,firebase,git,github)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,firebase,git,github&perline=4)](https://skillicons.dev)
