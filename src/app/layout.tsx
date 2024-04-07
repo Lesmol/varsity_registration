@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import { AuthProvider } from "./context/AuthProvider";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }
