@@ -6,7 +6,7 @@ import { getAuth } from "firebase/auth";
 // TODO: I need to find out if I can fix that
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: "varsity-registration-auth.firebaseapp.com",
+  authDomain: "varsity-registration-aut-717d4.firebaseapp.com",
   projectId: process.env.FIREBASE_PROJECT_ID,
   storageBucket: process.env.FIREBASE_STORAGE_BUCK,
   messagingSenderId: process.env.FIREBASE_MESSAGE_SENDER_ID,
